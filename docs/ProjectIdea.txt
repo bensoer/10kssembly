@@ -1,0 +1,9 @@
+The project will be a NASM x64 Assembly project that explores a number of system calls previously studied in C/C++.
+
+Specificaly this project is a recreation of the 10k problem which is a benchmarking of the efficiency of a server program when dealing with 10 thousand clients. The idea of the project is to recreate this in NASM x64 assembly
+
+Additionaly, this will be an opportunity to study the efficiency of the 10k problem when implemented in Assembly versus C/C++
+
+
+
+The project will incorporate the implementation of a multi-process server, a server using epoll, and a server using select. Then a client that will interact with these servers. All 4 of these components will be written in NASM x64 Assembly
