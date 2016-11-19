@@ -14,6 +14,10 @@
 %define SYS_CLOSE			3					; sys call to close the descriptor
 %define SYS_SHUTDOWN		48					; sys call to shutdown connection
 
+%define SYS_EXIT			60					; sys call to exit the program
+%define SYS_FORK			57					; sys call to fork the process
+%define SYS_GETPID			39					; sys call to get my process id
+%define SYS_KILL			62					; sys call to kill process
 
 ; Convert numbers (constants!) to network byte order
 %define htonl(x) ((x & 0xFF000000) >> 24) | ((x & 0x00FF0000) >> 8) | ((x & 0x0000FF00) << 8) | ((x & 0x000000FF) << 24)
