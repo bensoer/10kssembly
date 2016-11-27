@@ -45,18 +45,19 @@ exit_nicely:
 	syscall
 	ret
 
-asmprintf_int:
+;asmprintf_int:
 
      ;prep
-     push rbp
+ ;    push rbp
 
-     mov rdi, format
-     mov rsi, [integer]
-     mov rax, 0 
+;     mov rdi, format
+ ;    mov rsi, [integer]
+;     mov rax, 0 
 
-     call printf                 ; call printf system call
+;     call printf                 ; call printf system call
      
      ;cleanup
-     pop rbp
+;     pop rbp
     
-     ret
+  ;   ret
+

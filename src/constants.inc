@@ -8,6 +8,7 @@
 %define SYS_LISTEN			50					; sys_listen call name
 %define SYS_LISTEN_BACKLOG	10					; how many tcp connections can be queued
 %define SYS_ACCEPT			43					; accept a connection
+%define SYS_CONNECT			42					; connect to a server
 
 %define SYS_READ			0					; sys call to read from descriptor
 %define SYS_WRITE			1					; sys call to write to descriptor
@@ -18,6 +19,10 @@
 %define SYS_FORK			57					; sys call to fork the process
 %define SYS_GETPID			39					; sys call to get my process id
 %define SYS_KILL			62					; sys call to kill process
+
+%define SYS_EPOLL_CREATE	213					; sys call for creating epoll instance
+%define SYS_TIME			201					; get the unix timestamp
+%define SYS_GETTIMEOFDAY	96					; get unix time of day
 
 ; Convert numbers (constants!) to network byte order
 %define htonl(x) ((x & 0xFF000000) >> 24) | ((x & 0x00FF0000) >> 8) | ((x & 0x0000FF00) << 8) | ((x & 0x000000FF) << 24)
