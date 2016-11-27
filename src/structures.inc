@@ -15,9 +15,6 @@ struc TIMEVAL
     .tv_usec:   resq    1
 endstruc
 
-%define tv.tv_sec tv+TIMEVAL.tv_sec
-%define tv.tv_usec tv+TIMEVAL.tv_usec
-
 
 ; epoll data structure
 struc epoll_data
