@@ -46,7 +46,7 @@ PORT 		equ 	htons(8000)		; set port for server
 
 
 ;LOCALHOST equ 0x0100007f
-LOCALHOST equ htonl(0x7F000001)
+LOCALHOST equ htonl(0x7F000001)  ; THIS IS LOCALHOST IN HEX
 
 my_sa: istruc sockaddr_in
             at sockaddr_in.sin_family, dw PROTO_FAM
