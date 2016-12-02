@@ -1,3 +1,12 @@
+; ================================================================================
+;
+;	Epoll Server - WARNING DOES NOT WORK. MIGHT COMPILE
+;
+;	Compile:
+;		nams -f elf64 -d ELF_TYPE -i .././ main.asm
+;		gcc main.o -o main.out
+;
+; ================================================================================
 
 
 %include "../constants.inc"
@@ -72,6 +81,7 @@ main:
 
 
 
+
 	;call start_server
 
 
@@ -129,68 +139,7 @@ start_server:
 	mov rax, SYS_LISTEN
 	syscall
 
-parent_loop:
 
-	; accept a connection
-	mov rdi, [fd_socket]
-	mov rsi, 0
-	mov rdx, 0
-	mov rax, SYS_ACCEPT
-	syscall
- 
-	mov [fd_conn], rax ; session sockfd is in rax, put a copy in rcx for now
-
-	;create a new process to handle this connection
-	mov rax, SYS_FORK
-	syscall
-
-	;check if were the child or parent
-	cmp rax, -1
-	je exit_error
-
-	cmp rax, 0
-	jg handle_as_parent
-
-	cmp rax, 0
-	je handle_as_child
-
-
-	
-
-handle_as_parent:
-
-
-
-	jmp parent_loop
-
-
-
-handle_as_child:
-
-child_loop:
-
-	; read from the descriptor
-	mov rdi, [fd_conn]
-	mov rsi, BUFFER
-	mov rdx, BUFFERLEN
-	mov rax, SYS_READ
-	syscall
-
-	;mov rbx, rax ; rax contains the number of bytes read
-	mov [fd_conn_bytes], rax
-	mov [integer], rax
-
-	cmp [integer], dword 0
-	je close_connection
-
-	; write back to it
-	mov rdi, [fd_conn]
-	mov rsi, BUFFER
-	mov rdx, [fd_conn_bytes]
-	mov rax, SYS_WRITE
-	syscall
-
-	jmp child_loop
 
 close_connection:
 

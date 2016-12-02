@@ -105,6 +105,8 @@ main:
 	mov rax, SYS_CONNECT
 	syscall
 
+loop:
+
 	;print what were sending first
 	push rbp
 
@@ -184,3 +186,4 @@ main:
 	call printf
 	pop rbp
 
+	jmp loop
